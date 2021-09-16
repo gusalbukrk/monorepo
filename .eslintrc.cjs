@@ -30,6 +30,19 @@ module.exports = {
     'prettier/prettier': 'error',
     'json/*': ['error', 'allowComments'],
 
+    'max-len': [
+      'warn',
+      {
+        code: 80, // must be the same as prettierrc's printWidth
+        comments: 100,
+        ignoreTrailingComments: true,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+      },
+    ],
+
     'import/order': [
       'error',
       {
@@ -75,7 +88,8 @@ module.exports = {
       parserOptions: { project: './tsconfig.json' },
       plugins: ['@typescript-eslint'],
       rules: {
-        // disable some base rules and enable their typescript-eslint equivalents (Extension Rules) to prevent incorrect errors
+        // disable some base rules and enable their typescript-eslint equivalents
+        // (Extension Rules) to prevent incorrect errors
         // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#i-am-using-a-rule-from-eslint-core-and-it-doesnt-work-correctly-with-typescript-code
         'no-use-before-define': 'off',
         '@typescript-eslint/no-use-before-define': ['error'],
